@@ -17,7 +17,7 @@ body{background:var(--bg);color:var(--wh);font-family:'Rajdhani',sans-serif;over
 
 /* LANG */
 .lang-bar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:flex-end;align-items:center;padding:11px 32px;background:rgba(10,12,15,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--br)}
-.lb{background:none;border:1px solid var(--br);color:var(--gr);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;letter-spacing:.12em;padding:4px 13px;cursor:pointer;transition:all .2s;text-transform:uppercase}
+.lb{background:none;border:1px solid var(--br);color:var(--gr);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;letter-spacing:.08em;padding:5px 14px;cursor:pointer;transition:all .2s;text-transform:uppercase;min-height:34px}
 .lb.on{background:var(--acc);color:var(--bg);border-color:var(--acc)}
 .lb:first-child{border-radius:4px 0 0 4px}
 .lb:last-child{border-radius:0 4px 4px 0}
@@ -96,7 +96,7 @@ section{padding:88px 60px}
 /* WHY */
 .wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(218px,1fr));gap:2px;background:var(--br);border:1px solid var(--br);margin-top:50px}
 .wcard{background:var(--bg2);padding:33px 26px;position:relative}
-.wcard::after{content:attr(data-n);position:absolute;top:14px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:58px;color:rgba(232,160,32,.05);line-height:1}
+.wcard::after{content:attr(data-n);position:absolute;top:14px;right:16px;font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,8vw,58px);color:rgba(232,160,32,.05);line-height:1}
 .wico{width:36px;height:36px;margin-bottom:14px;color:var(--acc)}
 .wt{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.05em;margin-bottom:8px}
 .wd{font-size:14px;color:var(--gr);line-height:1.65;font-weight:400}
@@ -157,6 +157,90 @@ footer{padding:38px 60px;background:var(--bg);border-top:1px solid var(--br);dis
 .custom-note-ico{color:var(--acc2);flex-shrink:0;margin-top:1px}
 .custom-note-txt{font-size:13px;color:var(--gr);line-height:1.6;font-weight:400}
 .ndot{width:7px;height:7px;background:var(--acc);border-radius:50%;flex-shrink:0}
+
+/* ── RESPONSIVE ─────────────────────────────── */
+
+/* Tablet: 600–860px */
+@media(max-width:860px){
+  .hero{padding:100px 32px 64px}
+  .badges{padding:20px 32px;gap:16px}
+  section{padding:64px 32px}
+  .pgallery{grid-template-columns:1fr 1fr;grid-template-rows:260px 260px}
+  .ogrid{grid-template-columns:1fr;gap:32px}
+  .pbox{margin-top:0}
+  .wgrid{grid-template-columns:1fr 1fr}
+  .tgrid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+  .klist{grid-template-columns:1fr}
+  .fab{bottom:20px;right:20px;padding:13px 22px;font-size:14px}
+  .lang-bar{padding:10px 24px}
+}
+
+/* Mobile: ≤599px */
+@media(max-width:599px){
+  .hero{padding:88px 20px 52px}
+  .hsub{max-width:100%}
+  .ssub{max-width:100%}
+  .hpr{gap:16px}
+  .pnote{font-size:13px}
+  .hero h1{font-size:clamp(52px,14vw,80px)}
+  .hsub{font-size:16px}
+  .price{font-size:52px}
+  .hbtns{flex-direction:column;gap:10px}
+  .btn1,.btn2{width:100%;justify-content:center;clip-path:none;border-radius:4px}
+
+  .badges{padding:16px 20px;gap:12px;flex-direction:column}
+
+  section{padding:48px 20px}
+  .stitle{font-size:clamp(32px,10vw,52px)}
+  .ssub{font-size:15px;margin-bottom:32px}
+
+  /* Photo gallery: single column on mobile */
+  .pgallery{grid-template-columns:1fr;grid-template-rows:auto;gap:3px}
+  .pgallery .big,.pgallery .sm{grid-column:1;grid-row:auto}
+  .pitem{min-height:220px}
+  .photo-note{flex-direction:column;gap:8px}
+
+  /* Tool cards: 2 columns */
+  .tgrid{grid-template-columns:1fr 1fr;gap:2px}
+  .tcard{padding:22px 12px 18px}
+  .tcard svg{width:72px;height:72px}
+  .tname{font-size:13px}
+  .tdesc{font-size:11px}
+
+  /* Kit list: single column */
+  .klist{grid-template-columns:1fr}
+  .ki{padding:18px 16px}
+
+  /* Why grid: single column */
+  .wgrid{grid-template-columns:1fr}
+  .wcard{padding:26px 20px}
+
+  /* Order */
+  .ogrid{grid-template-columns:1fr;gap:24px}
+  .color-opts{flex-direction:column;gap:8px}
+  .color-opt{width:100%}
+  .cc{padding:16px 16px}
+  .pbox{padding:16px}
+  .pbig{font-size:38px}
+
+  /* FAB */
+  .fab{bottom:16px;right:16px;padding:12px 18px;font-size:13px;gap:8px}
+  .fab svg{width:14px;height:14px}
+
+  /* Footer */
+  footer{flex-direction:column;align-items:flex-start;gap:8px;padding:24px 20px}
+
+  /* Lang bar */
+  .lang-bar{padding:10px 20px}
+}
+
+/* Very small: ≤380px */
+@media(max-width:380px){
+  .hero h1{font-size:48px}
+  .tgrid{grid-template-columns:1fr}
+  .tcard svg{width:64px;height:64px}
+  .price{font-size:44px}
+}
 </style>
 </head>
 <body>
@@ -293,12 +377,10 @@ footer{padding:38px 60px;background:var(--bg);border-top:1px solid var(--br);dis
         <svg class="custom-note-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         <div class="custom-note-txt" id="or-custom">Возможно дооборудование набора по желанию заказчика — уточните при обращении.</div>
       </div>
-      <div class="stag" style="margin-bottom:14px" id="or-ctag2">Напишите нам напрямую</div>
     </div>
     <div class="reveal">
-      <div class="stag" style="margin-bottom:14px" id="or-ctag">Или свяжитесь напрямую</div>
       <div class="och">
-        <a href="https://t.me/ufffen0l" class="cc" target="_blank" id="tg-card">
+        <a href="https://t.me/uffen0l" class="cc" target="_blank" id="tg-card">
           <div class="cico tg"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg></div>
           <div><div class="cn">Telegram</div><div class="cdesc" id="or-tgd">Написать в личные сообщения</div></div>
           <svg class="carr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -324,7 +406,7 @@ footer{padding:38px 60px;background:var(--bg);border-top:1px solid var(--br);dis
 </footer>
 
 <!-- FLOATING BUY BUTTON -->
-<a href="#order" class="fab" id="fab" onclick="document.getElementById('fn').focus()">
+<a href="#order" class="fab" id="fab">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
   <span id="fab-txt">Купить</span>
 </a>
@@ -982,16 +1064,14 @@ function setLang(l) {
    'tl-tag','tl-title','tl-sub','kl-tag','kl-title','kl-sub',
    'wy-tag','wy-title','or-tag','or-title','or-sub','or-ftag',
    'or-ln','or-lc','or-lm','or-bs','or-ctag','or-tgd','or-avd',
-   'or-pl','or-pn','or-lcolor','col-green-lbl','col-beige-lbl','or-custom','fab-txt','f-brand','f-copy'].forEach(id => {
+   'or-ftag','or-pl','or-pn','or-lcolor','col-green-lbl','col-beige-lbl','or-custom','fab-txt','f-brand','f-copy'].forEach(id => {
     const el = document.getElementById(id);
     if (el && t[id] !== undefined) el.innerHTML = t[id];
   });
   document.querySelectorAll('.btxt').forEach(el => {
     const v = t[el.dataset.k]; if(v) el.textContent = v;
   });
-  document.getElementById('fn').placeholder = t.fn;
-  document.getElementById('fc').placeholder = t.fc;
-  document.getElementById('fm').placeholder = t.fm;
+
   renderTools(); renderKit(); renderWhy(); observe();
 
 // FAB: hide when order section is visible
